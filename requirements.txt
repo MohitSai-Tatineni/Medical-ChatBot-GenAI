@@ -10,3 +10,4 @@ langchain_openai
 langchain_experimental
 ctransformers==0.2.5
 pinecone-client
+-e .
