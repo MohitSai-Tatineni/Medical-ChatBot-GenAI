@@ -47,35 +47,62 @@
 				</div>
 			</div>
 		</div>
-		
-		<script>
-			$(document).ready(function() {
-				$("#messageArea").on("submit", function(event) {
-					const date = new Date();
-					const hour = date.getHours();
-					const minute = date.getMinutes();
-					const str_time = hour+":"+minute;
-					var rawText = $("#text").val();
-
-					var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawText + '<span class="msg_time_send">'+ str_time + '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
-					
-					$("#text").val("");
-					$("#messageFormeight").append(userHtml);
-
-					$.ajax({
-						data: {
-							msg: rawText,	
-						},
-						type: "POST",
-						url: "/get",
-					}).done(function(data) {
-						var botHtml = '<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer">' + data + '<span class="msg_time">' + str_time + '</span></div></div>';
-						$("#messageFormeight").append($.parseHTML(botHtml));
-					});
-					event.preventDefault();
-				});
-			});
-		</script>
-        
+    <script>
+      $(document).ready(function () {
+          $("#messageArea").on("submit", function (event) {
+              // Prevent default form submission
+              event.preventDefault();
+  
+              // Get the current date and time for the user message
+              const userDate = new Date();
+              const userTime = userDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+              const userDateString = userDate.toLocaleDateString();
+  
+              // Get the user's message
+              var rawText = $("#text").val();
+  
+              // Add the user's message to the chat window
+              var userHtml = `
+                  <div class="d-flex justify-content-end mb-4">
+                      <div class="msg_cotainer_send">
+                          ${rawText}
+                          <span class="msg_time_send">${userTime}, ${userDateString}</span>
+                      </div>
+                      <div class="img_cont_msg">
+                          <img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg">
+                      </div>
+                  </div>`;
+              $("#text").val("");
+              $("#messageFormeight").append(userHtml);
+  
+              // Send the user's message to the server
+              $.ajax({
+                  data: {
+                      msg: rawText,
+                  },
+                  type: "POST",
+                  url: "/get",
+              }).done(function (data) {
+                  // Get the current date and time for the bot's response
+                  const botDate = new Date();
+                  const botTime = botDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                  const botDateString = botDate.toLocaleDateString();
+  
+                  // Add the bot's response to the chat window
+                  var botHtml = `
+                      <div class="d-flex justify-content-start mb-4">
+                          <div class="img_cont_msg">
+                              <img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" class="rounded-circle user_img_msg">
+                          </div>
+                          <div class="msg_cotainer">
+                              ${data}
+                              <span class="msg_time">${botTime}, ${botDateString}</span>
+                          </div>
+                      </div>`;
+                  $("#messageFormeight").append($.parseHTML(botHtml));
+              });
+          });
+      });
+  </script>  
     </body>
 </html>
