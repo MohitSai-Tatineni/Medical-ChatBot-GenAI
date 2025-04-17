@@ -19,7 +19,6 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 | NLP Libraries  | SpaCy, NLTK                          |
 | Deployment     | Localhost / Streamlit (optional)     |
 
----
 
 ## 📚 Dataset Sources
 
@@ -27,8 +26,6 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 - [CDC Physical Activity Guidelines](https://health.gov/sites/default/files/2019-09/Physical_Activity_Guidelines_2nd_edition.pdf)
 - Dietary Guidelines for Americans 2020–2025
 - Curated datasets from public health repositories
-
----
 
 ## 🧩 Approach Used
 
@@ -38,7 +35,6 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 4. **Query Resolution**: Retrieved relevant context and fed it into Llama 2 for response generation.
 5. **Integration**: Combined all parts into a Flask backend with a React frontend UI.
 
----
 
 ## 🧠 Model Information
 
@@ -47,7 +43,6 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 - Real-time, RAG-enabled conversational response generation
 - Non-diagnostic, personalized wellness responses
 
----
 
 ## 📊 Application Results
 
@@ -55,13 +50,11 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 - Provided personalized advice based on user inputs (age, lifestyle, concerns)
 - Adhered to public health standards without compromising on usability
 
----
 
 ## 🧱 Application Architecture
 
 > 📌 *Paste architecture diagram image here*
 
----
 
 ## 📈 Future Enhancements
 
@@ -70,18 +63,12 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 - Expansion of data sources
 - Real-time sentiment adaptation
 
----
 
 ## 👨‍💻 Authors
 
 - Dhyey Joshi
-- Gowthami Gokul
-- Matthew Yeseta
-- Sahithi Vangala
 
 > Sponsored by **Crisis Technologies Innovation Lab** – Fall 2024
-
----
 
 ## 📝 License
 
