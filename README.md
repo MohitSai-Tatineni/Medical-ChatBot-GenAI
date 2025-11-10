@@ -73,6 +73,7 @@ CAREPAL is a generative AI-powered chatbot that provides health and wellness rec
 ## 👨‍💻 Authors
 
 - Dhyey Joshi
+- Gowthami Gokul
 
 > Sponsored by **Crisis Technologies Innovation Lab** – Fall 2024
 
